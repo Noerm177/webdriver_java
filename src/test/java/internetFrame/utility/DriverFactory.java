@@ -1,4 +1,4 @@
-package utility;
+package internetFrame.utility;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +12,7 @@ import static org.apache.log4j.Logger.getLogger;
 public class DriverFactory {
     private static Logger logger = getLogger(DriverFactory.class.getName());
 
+    /** define browser **/
     public WebDriver getDriver(){
         String browser = System.getProperty("browser");
         if (browser == null)
