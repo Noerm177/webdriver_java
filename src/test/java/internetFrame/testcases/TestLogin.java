@@ -1,4 +1,8 @@
 package internetFrame.testcases;
 
-public class TestLogin {
+import internetFrame.utility.Init;
+
+public class TestLogin extends Init {
+
+    public void
 }
