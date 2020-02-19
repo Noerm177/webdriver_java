@@ -5,7 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.EmptyStackException;
+
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class LoginPage extends ServicesMethods {
 
@@ -33,6 +36,34 @@ public class LoginPage extends ServicesMethods {
         String actualHead = headerElm.getText();
         assertEquals(actualHead, HEADING,
                 "Actual "+ actualHead + "should be same as "+ MSG_SUCCESS + ".");
+    }
+
+    public String getMsg() {
+        try {
+            waitForElementVisible(By::cssSelector, xpathMsg);
+            return getWebE(By::cssSelector, xpathMsg).getText().trim();
+
+        } catch (Exception e) {
+            return "Not found MSG" + e;
+        }
+    }
+
+    public void loginAction(String username, String password) {
+        sendText(By::cssSelector, cssUsername, username);
+        sendText(By::cssSelector, cssPassword, password);
+        click(By::cssSelector, cssLoginBtn);
+    }
+
+    public void verifyLoginCorrect(String username, String password) {
+        loginAction(username, password);
+        assertTrue(getMsg().contains(MSG_SUCCESS),
+                "Actual "+ getMsg()+ "should be same as "+ MSG_SUCCESS);
+    }
+
+    public void verifyLoginIncorrect(String username, String password) {
+        loginAction(username, password);
+        assertTrue(getMsg().contains(MSG_ERROR),
+                "Actual "+ getMsg()+ "should be same as "+ MSG_ERROR);
     }
 
 }
