@@ -40,8 +40,8 @@ public class LoginPage extends ServicesMethods {
 
     public String getMsg() {
         try {
-            waitForElementVisible(By::cssSelector, xpathMsg);
-            return getWebE(By::cssSelector, xpathMsg).getText().trim();
+            waitForElementVisible(By::xpath, xpathMsg);
+            return getWebE(By::xpath, xpathMsg).getText().trim();
 
         } catch (Exception e) {
             return "Not found MSG" + e;
@@ -58,6 +58,7 @@ public class LoginPage extends ServicesMethods {
         loginAction(username, password);
         assertTrue(getMsg().contains(MSG_SUCCESS),
                 "Actual "+ getMsg()+ "should be same as "+ MSG_SUCCESS);
+        click(By::xpath,xpathLogoutBtn);
     }
 
     public void verifyLoginIncorrect(String username, String password) {

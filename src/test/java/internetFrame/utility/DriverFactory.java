@@ -17,7 +17,7 @@ public class DriverFactory {
         String browser = System.getProperty("browser");
         if (browser == null)
             browser = "chrome";
-        logger.info("# Webdriver instance for browser: " + browser);
+            logger.info("# Webdriver instance for browser: " + browser);
 
         if (browser.equalsIgnoreCase("chrome"))
             return new ChromeDriver();

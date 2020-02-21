@@ -24,7 +24,7 @@ public class TestLogin extends Init {
         welcomePG.clickOnLink("Form Authentication");
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginAction(username, password);
+        loginPage.verifyLoginCorrect(username, password);
     }
 
 }

@@ -13,7 +13,6 @@ public class WelcomePG {
     String xpathHeading = "//h1";
     String xpathLink = "//ul/li/a[text()='**link**']";
     WebDriver driver;
-    ServicesMethods SM = new ServicesMethods(driver);
 
     public WelcomePG(WebDriver driver) {
         this.driver = driver;
