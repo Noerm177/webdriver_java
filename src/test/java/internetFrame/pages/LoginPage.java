@@ -31,9 +31,8 @@ public class LoginPage extends ServicesMethods {
     }
 
     public void verifyLPHeader() {
-        waitElement(xpathHeading);
-        WebElement headerElm = getWebE(By::xpath, xpathHeading);
-        String actualHead = headerElm.getText();
+        waitElm(By::xpath, xpathHeading);
+        String actualHead = getWebE(By::xpath, xpathHeading).getText();
         assertEquals(actualHead, HEADING,
                 "Actual "+ actualHead + "should be same as "+ MSG_SUCCESS + ".");
     }

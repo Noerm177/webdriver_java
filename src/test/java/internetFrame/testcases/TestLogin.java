@@ -4,6 +4,7 @@ import internetFrame.pages.LoginPage;
 import internetFrame.utility.Init;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.apache.log4j.Logger;
 
 public class TestLogin extends Init {
 
@@ -19,7 +20,7 @@ public class TestLogin extends Init {
 
     @Test(dataProvider = "validCrend")
     public void testLogin(String username, String password) {
-        WelcomePG welcomePG = new WelcomePG(driver);
+        WelcomePG  welcomePG = new WelcomePG(driver);
         welcomePG.verifyWPHead();
         welcomePG.clickOnLink("Form Authentication");
 
